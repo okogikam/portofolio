@@ -136,3 +136,10 @@
     flex: 0 0 100%;
   }
 }
+@media screen and (max-width: 800px) {
+  #project .col-3,
+  #info .col-3,
+  #kontak .col-3 {
+    flex: 0 0 100%;
+  }
+}
