@@ -16,7 +16,7 @@
     <div class="main-content full">
       <div class="top"></div>
       <div class="left">
-        <section id="profil">
+        <section id="profil" class="d-none">
           <h1>Profil</h1>
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. In, qui.
@@ -31,7 +31,7 @@
             Aliquid?
           </p>
         </section>
-        <section id="kontak">
+        <section id="kontak" class="d-none">
           <h1>Contact</h1>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti
@@ -50,7 +50,7 @@
             </div>
           </div>
         </section>
-        <section id="info">
+        <section id="info" class="d-none">
           <h1>Info</h1>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti
@@ -70,7 +70,7 @@
             <div class="col-3 item"><i class="fa-brands fa-php"></i> PHP</div>
           </div>
         </section>
-        <section id="project">
+        <section id="project" class="d-none">
           <h1>Project</h1>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti
@@ -102,29 +102,54 @@
         </section>
       </div>
       <div class="right">
+        <div class="item col-1"></div>
         <div class="item col-6">
-          <a href="#profil">
+          <a href="#profil" data-set="profil">
             <h4>Profil</h4>
           </a>
         </div>
         <div class="item col-6">
-          <a href="#kontak">
+          <a href="#kontak" data-set="kontak">
             <h4>Contact</h4>
           </a>
         </div>
+
         <div class="item col-3">
-          <a href="#info">
+          <a href="#info" data-set="info">
             <h4>Info</h4>
           </a>
         </div>
-        <div class="item col-3">
-          <a href="#project">
+        <div class="item col-5">
+          <a href="#project" data-set="project">
             <h4>Project</h4>
           </a>
         </div>
       </div>
       <div class="bottom"></div>
     </div>
-    <script></script>
+    <script>
+      let btn = document.querySelectorAll("a");
+
+      display(btn[0].dataset.set);
+      btn.forEach((value) => {
+        value.addEventListener("click", () => {
+          // console.log(value.dataset.set);
+          display(value.dataset.set);
+        });
+      });
+      // let x = btn[0].dataset.set;
+
+      function display(x) {
+        let y = document.querySelectorAll("section");
+        y.forEach((index) => {
+          index.classList.remove("active");
+          index.classList.add("d-none");
+          if (index.id == x) {
+            index.classList.remove("d-none");
+            index.classList.add("active");
+          }
+        });
+      }
+    </script>
   </body>
 </html>
